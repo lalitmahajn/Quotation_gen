@@ -98,7 +98,7 @@ pyinstaller --onefile --windowed --add-data "template.html;." --name "QuotationG
 ## 📁 Project Structure
 
 ```text
-├── dist/                # Contains the compiled, ready-to-run QuotationGenerator.exe
+├── dist/                # Compiled .exe (Ignored by Git; download from GitHub Releases)
 ├── app_desktop.py       # Source code for the Tkinter desktop application
 ├── app.py               # Source code for the Streamlit web application
 ├── pdf_generator.py     # Jinja2 HTML rendering logic
