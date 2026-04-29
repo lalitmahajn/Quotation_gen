@@ -372,7 +372,7 @@ with col_b:
         with open(output_path, "w", encoding="utf-8") as f:
             f.write(html_output)
         webbrowser.open(f"file:///{output_path.replace(os.sep, '/')}")
-        st.success(f"✅ Opened in browser — use **Ctrl+P** to Print or Save as PDF")
+        st.success("✅ Opened in browser — use **Ctrl+P** to Print or Save as PDF")
 
 with col_c:
     st.download_button(
