@@ -1,109 +1,129 @@
-<div align="center">
-  <h1>📄 Quotation Generator</h1>
-  <p>
-    <strong>A dynamic, fully-featured desktop application for generating pixel-perfect PDF quotations.</strong>
-  </p>
-  <p>
-    <a href="https://github.com/lalitmahajn/Quotation_gen/issues"><img alt="Issues" src="https://img.shields.io/github/issues/lalitmahajn/Quotation_gen?style=for-the-badge&color=blue"></a>
-    <a href="https://github.com/lalitmahajn/Quotation_gen/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/lalitmahajn/Quotation_gen?style=for-the-badge&color=yellow"></a>
-    <a href="https://github.com/lalitmahajn/Quotation_gen/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/lalitmahajn/Quotation_gen?style=for-the-badge&color=green"></a>
-  </p>
-</div>
+# 🚀 Quotation PDF Generator
+
+[![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.32.0-FF4B4B.svg?logo=streamlit)](https://streamlit.io/)
+[![Jinja2](https://img.shields.io/badge/Jinja2-3.1.3-B41717.svg)](https://jinja.palletsprojects.com/)
+[![PyInstaller](https://img.shields.io/badge/PyInstaller-6.20.0-3776AB.svg)](https://pyinstaller.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+A dynamic, fully-featured application designed to replace static HTML quotation layouts with a highly customizable form. This tool generates clean, professional, and **pixel-perfect PDF quotations** by utilizing a browser-based rendering approach, bypassing the CSS limitations of traditional Python PDF libraries.
 
 ---
 
-## 📖 About The Project
+## ✨ Key Features
 
-This project was built to replace a static HTML quotation layout with a dynamic desktop application. It allows you to input company details, dynamic line items, and terms & conditions to generate a clean, professional, and pixel-perfect PDF. 
-
-By relying on the browser's native print engine instead of traditional Python PDF libraries, it ensures the final output exactly matches the styling and structure of your intended design without CSS incompatibilities.
-
-### ✨ Features
-* 🖥️ **Two Interfaces**: Choose between a portable Tkinter Desktop app (no setup required) or a modern Streamlit web app.
-* 🛒 **Dynamic Line Items**: Easily add/remove items with auto-calculating subtotals, GST (dropdowns for 0%, 5%, 12%, 18%, 28%), and grand totals.
-* 🏢 **Customizable Details**: Includes Bill To / Ship To logic, bank details, optional logo uploading, and dynamic terms & conditions.
-* 🖨️ **Pixel-Perfect PDF Generation**: Exports via a browser-based print trick to ensure 100% layout fidelity.
+- 🖥️ **Dual Interfaces**: Choose between a zero-setup, portable **Tkinter Desktop App** or a modern **Streamlit Web App**.
+- 🛒 **Dynamic Line Items**: Add/remove rows seamlessly with auto-calculating subtotals, GST (0%, 5%, 12%, 18%, 28%), and grand totals.
+- 🏢 **Deep Customization**: Editable fields for company details, bank info, Bill To / Ship To logic, and dynamic terms & conditions.
+- 🖨️ **Pixel-Perfect PDF Generation**: Exports via a browser-based print trick (`Ctrl + P` -> Save as PDF) to ensure 100% fidelity to the original template layout.
+- 💼 **Portable Distribution**: Pre-packaged as a standalone Windows executable (`.exe`), requiring no local Python installation.
 
 ---
 
-## 🚀 Getting Started
+## 🛠️ Tech Stack
 
-There are two versions of this application depending on your needs.
+### Core Technologies
+| Technology | Description |
+| :--- | :--- |
+| **Python** | The primary backend logic and scripting language. |
+| **Tkinter** | Python's standard GUI library for the standalone desktop application. |
+| **Streamlit** | Rapid web application framework for the browser-based interface. |
+| **Jinja2** | Powerful templating engine used to inject dynamic data into the HTML structure. |
+| **PyInstaller** | Tool used to package the Python application into a portable Windows executable. |
+
+---
+
+## ⚙️ Setup & Configuration
+
+### Prerequisites
+- **Python 3.11+** (Only required if you are not using the `.exe`)
+- Your preferred modern web browser (Chrome, Edge, Firefox) for rendering the final PDF.
+
+---
+
+## 🚀 Quick Start (Windows)
+
+Depending on your workflow, you can choose to run the portable executable or host the web application.
 
 ### Option 1: Standalone Desktop App (Recommended)
-A completely portable Windows executable (`.exe`) built using Tkinter. It requires **no installation, no Python, and no web server**.
+No setup or installation is required. This is a fully portable environment.
+```powershell
+# Navigate to the dist directory
+cd dist
 
-1. Navigate to the `dist/` directory.
-2. Double-click `QuotationGenerator.exe`.
-3. The app will launch immediately.
-
-> **⚠️ Note on Windows Security:** Because this `.exe` is custom-built and not digitally signed by a paid Certificate Authority, Microsoft SmartScreen or Windows Defender may flag it with a *"Windows protected your PC"* popup. This is a common false positive. Simply click **"More info"** and then **"Run anyway"**.
-
-### Option 2: Streamlit Web App
-A modern, browser-based version of the tool. Useful if you want to run it on an internal office server or modify the Python code directly.
-
-1. Clone the repo
-   ```sh
-   git clone https://github.com/lalitmahajn/Quotation_gen.git
-   ```
-2. Install Python dependencies
-   ```sh
-   pip install -r requirements.txt
-   ```
-3. Run the Streamlit server
-   ```sh
-   streamlit run app.py
-   ```
-4. Access the app in your browser at `http://localhost:8501`.
-
----
-
-## 🛠️ Usage & PDF Generation
-
-Because Python PDF libraries notoriously struggle with complex CSS grids and flexbox layouts, this application relies on your **web browser's built-in print engine** to guarantee flawless output.
-
-1. Fill out your quotation details in the application.
-2. Click the **"Open in Browser & Print"** button. Your default web browser will instantly open the formatted quotation.
-3. Press <kbd>Ctrl</kbd> + <kbd>P</kbd> on your keyboard.
-4. Set the destination to **"Save as PDF"**.
-5. *Important:* Expand "More settings" in the print dialog and ensure **"Headers and footers" is UNCHECKED**. *(This removes the file path and timestamps from the corners of the page).*
-6. Click Save!
-
----
-
-## 🎨 Customizing the Template
-
-The visual structure of the quotation is stored in `template.html`. 
-It uses the **Jinja2** templating engine to inject your data into the HTML structure. 
-
-If you need to change fonts, add a new column, or adjust the borders, simply edit the HTML/CSS inside `template.html`.
-
----
-
-## 📦 Building the `.exe` from Source
-
-If you make modifications to `app_desktop.py` or `template.html` and want to compile a fresh version of the standalone `.exe`, run the following command in your terminal:
-
-```sh
-pyinstaller --onefile --windowed --add-data "template.html;." --name "QuotationGenerator" --clean app_desktop.py
+# Double-click the executable or run it from the terminal
+.\QuotationGenerator.exe
 ```
 
-The newly compiled application will be placed in the `dist` folder.
+> **⚠️ Note on Windows Security:** Because this `.exe` is custom-built and not digitally signed, Windows Defender may flag it with a *"Windows protected your PC"* popup. Click **"More info"** -> **"Run anyway"**.
+
+### Option 2: Streamlit Web App
+Useful for running an internal office server or modifying the source code.
+```powershell
+# Install required dependencies
+pip install -r requirements.txt
+
+# Start the Streamlit application
+streamlit run app.py
+```
+*The web interface will automatically open at: `http://localhost:8501`*
+
+---
+
+## 🔦 Usage & PDF Generation
+
+Because traditional Python PDF libraries struggle with complex CSS structures, this tool leverages your browser's print engine.
+
+1. Fill out your quotation details in the application.
+2. Click **"Open in Browser & Print"**. The formatted HTML will open in your default browser.
+3. Press <kbd>Ctrl</kbd> + <kbd>P</kbd>.
+4. Set the print destination to **"Save as PDF"**.
+5. **Important:** Expand "More settings" in the print dialog and ensure **"Headers and footers" is UNCHECKED** to remove unwanted timestamps and file paths.
+6. Click Save.
+
+---
+
+## 🏗️ Building from Source
+
+If you make modifications to the UI (`app_desktop.py`) or the structural layout (`template.html`), you can rebuild the standalone executable:
+
+```powershell
+# Compile a fresh version of the .exe
+pyinstaller --onefile --windowed --add-data "template.html;." --name "QuotationGenerator" --clean app_desktop.py
+```
+*The newly built file will replace the old one in the `dist/` directory.*
+
+---
+
+## 📁 Project Structure
+
+```text
+├── dist/                # Contains the compiled, ready-to-run QuotationGenerator.exe
+├── app_desktop.py       # Source code for the Tkinter desktop application
+├── app.py               # Source code for the Streamlit web application
+├── pdf_generator.py     # Jinja2 HTML rendering logic
+├── template.html        # The visual HTML structure and CSS styling for the quotation
+├── requirements.txt     # Python dependency list
+├── README.md            # Project documentation
+└── LICENSE              # Open-source MIT license file
+```
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. Fork the repository.
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the branch (`git push origin feature/AmazingFeature`).
+5. Open a Pull Request.
 
 ---
 
 ## 📄 License
 
 Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+Developed with ❤️ by ARROWTECH COMPUTER.
